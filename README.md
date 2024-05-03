@@ -1,10 +1,10 @@
 
-# ggmugs
+# Ggmugs
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of ggmugs is to ...
+The goal of ggmugs is to visualize multiple Genome-wide Association Study (GWAS) summary statistics
 
 ## Installation
 
