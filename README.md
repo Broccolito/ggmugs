@@ -1,7 +1,9 @@
-
-# ggmugs
+# ggmugs <a href='https://github.com/Broccolito/ggmugs'><img src='man/img/logo.png' align="right" height="140"/></a>
 
 <!-- badges: start -->
+
+
+
 <!-- badges: end -->
 
 The goal of ggmugs is to visualize multiple Genome-wide Association Study (GWAS) summary statistics
