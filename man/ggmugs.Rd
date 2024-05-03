@@ -49,7 +49,7 @@ thresholds to facilitate the visualization of highly significant genomic regions
 ggmugs(
   study_name = c("study1", "study2", "study3", "study4", "study5"),
   summary_stat = c("https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat1.txt",
-                   "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat2.txt"
+                   "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat2.txt",
                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat3.txt",
                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat4.txt",
                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat5.txt"),

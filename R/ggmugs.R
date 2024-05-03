@@ -27,7 +27,7 @@
 #' ggmugs(
 #'   study_name = c("study1", "study2", "study3", "study4", "study5"),
 #'   summary_stat = c("https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat1.txt",
-#'                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat2.txt"
+#'                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat2.txt",
 #'                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat3.txt",
 #'                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat4.txt",
 #'                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat5.txt"),
@@ -63,7 +63,7 @@ ggmugs = function(
     d[["study_name"]] = x[["study_name"]]
     d[["chr_pos"]] = paste0(d[["chr"]], "_", d[["pos"]])
     d[["logp"]] = -log(d[["p"]],10)
-    d = dplyr::arrange(d, chr, pos, desc(logp))
+    d = dplyr::arrange(d, chr, pos, dplyr::desc(logp))
     d = dplyr::distinct(d, chr_pos, .keep_all = TRUE)
     d = dplyr::select(d, chr, pos, chr_pos, logp, study_name)
     return(d)
@@ -84,7 +84,7 @@ ggmugs = function(
   }
 
   # Final data selection and cleanup
-  data = dplyr::select(data_combined, chr, pos, chr_pos, everything())
+  data = dplyr::select(data_combined, chr, pos, chr_pos, dplyr::everything())
   rm(data_combined, data1, data2)
 
   # Calculate chromosome lengths and positions
@@ -97,8 +97,8 @@ ggmugs = function(
   # Merge and arrange data with cumulative base pair positions
   data = dplyr::left_join(data, data_chromosome_position, by = "chr") |>
     dplyr::arrange(chr, pos) |>
-    dplyr::mutate(bp_cum = pos + tot) %>%
-    dplyr::select(chr, pos, chr_pos, tot, bp_cum, everything())
+    dplyr::mutate(bp_cum = pos + tot) |>
+    dplyr::select(chr, pos, chr_pos, tot, bp_cum, dplyr::everything())
 
   # Prepare the plot data and axis labels
   axisdf = data |>
