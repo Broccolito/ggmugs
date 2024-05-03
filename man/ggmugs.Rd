@@ -56,8 +56,8 @@ ggmugs(
   p1 = 1e-4,
   p2 = 1e-6,
   p3 = 1e-8,
-  color1 = "#B3CDE3",
-  color2 = "#8C96C6",
-  color3 = "#88419D"
+  color1 = "#FFFFE0",
+  color2 = "#FFC300",
+  color3 = "#FF5733"
 )
 }
