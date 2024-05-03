@@ -29,7 +29,7 @@ This is a basic example which shows you how to solve a common problem:
 library(ggmugs)
 
 plt = ggmugs(
-  study_name = c("study1", "study2", "study3", "study4", "study5"),
+  study_name = c("sumstat1", "sumstat2", "sumstat3", "sumstat4", "sumstat5"),
   summary_stat = c("https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat1.txt",
                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat2.txt",
                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat3.txt",
