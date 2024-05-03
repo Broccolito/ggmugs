@@ -47,8 +47,12 @@ thresholds to facilitate the visualization of highly significant genomic regions
 }
 \examples{
 ggmugs(
-  study_name = c("study1", "study2"),
-  summary_stat = c("data/study1_summary.txt", "data/study2_summary.txt"),
+  study_name = c("study1", "study2", "study3", "study4", "study5"),
+  summary_stat = c("https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat1.txt",
+                   "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat2.txt"
+                   "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat3.txt",
+                   "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat4.txt",
+                   "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat5.txt"),
   p1 = 1e-4,
   p2 = 1e-6,
   p3 = 1e-8,
