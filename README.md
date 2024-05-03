@@ -2,7 +2,7 @@
 
 <!-- badges: start -->
 
-
+[![R-CMD-check](https://github.com/Broccolito/ggmugs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Broccolito/ggmugs/actions/workflows/R-CMD-check.yaml)
 
 <!-- badges: end -->
 
@@ -44,3 +44,6 @@ plt = ggmugs(
 )
 ```
 
+Here is an example output from the function:
+
+![Example Output](man/img/example.png)
