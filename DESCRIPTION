@@ -1,11 +1,10 @@
 Package: ggmugs
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Title: Visualization of Multiple Genome-Wide Association Study Summary Statistics
+Version: 0.2.0
+Author: Wanjun Gu
+Maintainer: Wanjun Gu <wanjun.gu@ucsf.edu>
+Description: The goal of ggmugs is to visualize multiple Genome-wide Association Study (GWAS) summary statistics.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
