@@ -10,7 +10,13 @@ The goal of ggmugs is to visualize multiple Genome-wide Association Study (GWAS)
 
 ## Installation
 
-To install the ggmugs package, run:
+You can install the ggmugs package directly from CRAN:
+
+```R
+install.packages("ggmugs")
+```
+
+Alternatively, to install the ggmugs package from github, run:
 
 ``` r
 if(!require("devtools")){

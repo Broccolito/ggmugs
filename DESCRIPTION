@@ -1,10 +1,11 @@
 Package: ggmugs
 Type: Package
 Title: Visualization of Multiple Genome-Wide Association Study Summary Statistics
-Version: 0.2.0
-Author: Wanjun Gu
-Maintainer: Wanjun Gu <wanjun.gu@ucsf.edu>
-Description: The goal of ggmugs is to visualize multiple Genome-wide Association Study (GWAS) summary statistics.
+Version: 0.6.0
+Authors@R: 
+    person("Wanjun", "Gu", , "wanjun.gu@ucsf.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-7342-7000"))
+Description: A 'grammar of graphics' approach for visualizing summary statistics from multiple Genome-wide Association Studies (GWAS). It offers geneticists, bioinformaticians, and researchers a powerful yet flexible tool for illustrating complex genetic associations using data from various GWAS datasets. The visualizations can be extensively customized, facilitating detailed comparative analysis across different genetic studies. Reference: Uffelmann, E. et al. (2021) <doi:10.1038/s43586-021-00056-9>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

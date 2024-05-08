@@ -24,20 +24,21 @@
 #' @importFrom purrr map
 #' @importFrom tidyr gather
 #' @examples
-#' ggmugs(
-#'   study_name = c("study1", "study2", "study3", "study4", "study5"),
-#'   summary_stat = c("https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat1.txt",
-#'                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat2.txt",
-#'                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat3.txt",
-#'                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat4.txt",
-#'                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat5.txt"),
-#'   p1 = 1e-4,
-#'   p2 = 1e-6,
-#'   p3 = 1e-8,
-#'   color1 = "#FFFFE0",
-#'   color2 = "#FFC300",
-#'   color3 = "#FF5733"
-#' )
+#' ### NOT RUN
+#' # ggmugs(
+#' #   study_name = c("study1", "study2", "study3", "study4", "study5"),
+#' #   summary_stat = c("https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat1.txt",
+#' #                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat2.txt",
+#' #                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat3.txt",
+#' #                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat4.txt",
+#' #                    "https://raw.githubusercontent.com/Broccolito/ggmugs_data/main/sumstat5.txt"),
+#' #   p1 = 1e-4,
+#' #   p2 = 1e-6,
+#' #   p3 = 1e-8,
+#' #   color1 = "#FFFFE0",
+#' #   color2 = "#FFC300",
+#' #   color3 = "#FF5733"
+#' # )
 #' @export
 
 ggmugs = function(
@@ -58,7 +59,7 @@ ggmugs = function(
 
   # Load and process data files for each study
   data = purrr::map(input_files, function(x){
-    cat(paste0("Loading ", x[["study_name"]], "...\n"))
+    message(paste0("Loading ", x[["study_name"]], "...\n"))
     d = data.table::fread(x[["summary_stat"]])
     d[["study_name"]] = x[["study_name"]]
     d[["chr_pos"]] = paste0(d[["chr"]], "_", d[["pos"]])
@@ -71,12 +72,12 @@ ggmugs = function(
 
   # Combine data from multiple studies
   data1 = data[[1]]
-  cat(paste0("Combining ", data1[["study_name"]][1], "...\n"))
+  message(paste0("Combining ", data1[["study_name"]][1], "...\n"))
   names(data1)[names(data1) == "logp"] = data1[["study_name"]][1]
   data1 = dplyr::select(data1, -study_name)
   for(i in 2:length(data)){
     data2 = data[[i]]
-    cat(paste0("Combining ", data2[["study_name"]][1], "...\n"))
+    message(paste0("Combining ", data2[["study_name"]][1], "...\n"))
     data_combined = dplyr::full_join(data1, data2, by = "chr_pos", suffix = c("", "_combined"))
     names(data_combined)[names(data_combined) == "logp"] = data2[["study_name"]][1]
     data_combined = dplyr::select(data_combined, -c(chr_combined, pos_combined, study_name))
@@ -116,6 +117,7 @@ ggmugs = function(
   data_p3 = dplyr::filter(data, logp >= -log(p3, base = 10))
 
   # Create the ggplot object with custom styling and color based on significance
+  message("Visualizing summary statistics...\n")
   plt = ggplot2::ggplot(data = data, ggplot2::aes(x = bp_cum, y = study_name)) +
     ggplot2::geom_point(data = data_p1, color = color1, shape = 15) +
     ggplot2::geom_point(data = data_p2, color = color2, shape = 15) +
